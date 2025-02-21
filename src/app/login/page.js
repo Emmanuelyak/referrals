@@ -36,7 +36,7 @@ export default function Home() {
         <div className="bg-background w-screen h-screen">
           <Navbar />
           <div className="w-12/12 xl:w-9/12 lg:w-11/12 m-auto mt-5 p-1 md:p-5 lg:p-1">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2">
               <div className="xl:w-9/12 lg:w-7/12 md:w-8/12 w-6/12 p-1 md:p-5 lg:p-1">
                 <InputGroup style={{ width: "100%", outlineStyle: "none" }}>
                   <Input />
@@ -109,10 +109,15 @@ export default function Home() {
                 </div>
               ) : (
                 <div className="w-8/12">
-                  <div className="mt-5 mb-3 flex justify-between items-center">
+                  <div className="mt-3 mb-0 flex justify-between items-center">
                     <h6 className="font-semibold">
                       project/projects-e-project-project2
                     </h6>
+                    <div>
+                      <Dropdown title={<RiMoreFill />} noCaret>
+                        <Dropdown.Item>Sort by activity</Dropdown.Item>
+                      </Dropdown>
+                    </div>
                   </div>
                   <div className="bg-white w-full rounded-xl border">
                     <div className="flex items-center justify-between p-3 border-b">
@@ -170,7 +175,7 @@ export default function Home() {
                       <div className="flex gap-3 items-center">
                         <div>
                           <Dropdown
-                            title={<RiMoreFill />} 
+                            title={<i className="ri-more-line text-xl"></i>}
                             noCaret
                           >
                             <Dropdown.Item>Sort by activity</Dropdown.Item>
@@ -203,7 +208,7 @@ export default function Home() {
                       <div className="flex gap-3 items-center">
                         <div>
                           <Dropdown
-                            title={<RiMoreFill />} 
+                            title={<i className="ri-more-line text-xl"></i>}
                             noCaret
                           >
                             <Dropdown.Item>Sort by activity</Dropdown.Item>
@@ -236,7 +241,7 @@ export default function Home() {
                       <div className="flex gap-3 items-center">
                         <div>
                           <Dropdown
-                            title={<RiMoreFill />} 
+                            title={<i className="ri-more-line text-xl"></i>}
                             noCaret
                           >
                             <Dropdown.Item>Sort by activity</Dropdown.Item>
@@ -269,7 +274,7 @@ export default function Home() {
                       <div className="flex gap-3 items-center">
                         <div>
                           <Dropdown
-                            title={<RiMoreFill />} 
+                            title={<i className="ri-more-line text-xl"></i>}
                             noCaret
                           >
                             <Dropdown.Item>Sort by activity</Dropdown.Item>
