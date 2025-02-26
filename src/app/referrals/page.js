@@ -1,7 +1,17 @@
 "use client";
 import Navbar from "@/components/navigation/nav-bar";
 import React from "react";
-
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  Rectangle,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { DatePicker, SelectPicker, VStack } from "rsuite";
 import {
   Card,
