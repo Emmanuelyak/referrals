@@ -13,10 +13,10 @@ export default function Campaign() {
         outlineStyle: "none",
       };
 
-      useEffect(()=>{
-        const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
-        isloggedIn !== true && router.push("/login") 
-      },[])
+      // useEffect(()=>{
+      //   const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
+      //   isloggedIn !== true && router.push("/login") 
+      // },[])
        const [list, setList] = useState(true);
   return (
     <div className="bg-background h-screen">

@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { MdOutlineSort } from "react-icons/md";
 import { Plus } from 'lucide-react';
 import { defaultItemSize } from "rsuite/esm/internals/Windowing";
+import AdminTableHeader from "@/components/admin-components/table-header";
 export default function page() {
     const invoices = [
         {
@@ -167,7 +168,7 @@ export default function page() {
           </div>
         </div>
       <div className=" bg-white border rounded-lg overflow-hidden shadow-md">
-      <div className="flex justify-between p-4 w-full">
+      {/* <div className="flex justify-between p-4 w-full">
           <div>
             <h3 className="text-lg font-bold">Payments</h3>
             <p>You made 24 sales this week</p>
@@ -250,7 +251,8 @@ export default function page() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-        </div>
+        </div> */}
+         <AdminTableHeader title="Payments" description="You made 24 sales this week" filter={invoices} />
         <Table className="border rounded-lg w-full">
           <TableHeader>
             <TableRow className="col-span-12">

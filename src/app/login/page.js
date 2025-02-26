@@ -12,23 +12,24 @@ import Navbar from "@/components/navigation/nav-bar";
 export default function Home() {
   const [list, setList] = useState(true);
   const [userActive, setUserActive] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
-    try {
-      const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
-      if (isloggedIn) {
-        setUserActive(true);
-      } else {
-        setUserActive(false);
-        router.push("/login");
-      }
-    } catch (error) {
-      console.error("Error parsing JSON from localStorage", error);
-      setUserActive(false);
-      router.push("/login");
-    }
-  }, [router]);
+    // try {
+    //   const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
+    //   if (isloggedIn) {
+    //     setUserActive(true);
+    //   } else {
+    //     setUserActive(false);
+    //     router.push("/login");
+    //   }
+    // } catch (error) {
+    //   console.error("Error parsing JSON from localStorage", error);
+    //   setUserActive(false);
+    //   router.push("/login");
+    // }
+    setUserActive(true)
+  }, []);
 
   return (
     <div>

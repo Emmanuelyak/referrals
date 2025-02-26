@@ -13,6 +13,7 @@ import { GiClick } from "react-icons/gi";
 import { TbBinaryTree } from "react-icons/tb";
 import { ImCoinDollar } from "react-icons/im";
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import AdminTableHeader from "@/components/admin-components/table-header";
 
 export default function AffiliateId() {
     const invoices = [
@@ -132,93 +133,7 @@ export default function AffiliateId() {
       </div>
       <div>
       <div className=" border rounded-lg shadow-sm p-2 mt-4  mb-4">
-        <div className="flex justify-between items-center bg-muted/50 pb-3">
-            <div>
-                <h5>Affiliate</h5>
-                <p>See the affiliate who have signed up for your affilate program</p>
-            </div>
-            <div>
-            <div className="grid grid-cols-3 gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  <MdOutlineSort /> Sort by <ChevronDown />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {invoices
-                  ?.filter((column) => column === "affiliate")
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    );
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  <BiFilterAlt /> Filter <ChevronDown />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {invoices
-                  ?.filter((column) => column === "affiliate")
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    );
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-auto">
-                  <FaRegCalendarPlus /> Monthly <ChevronDown />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {invoices
-                  ?.filter((column) => column === "affiliate")
-                  .map((column) => {
-                    return (
-                      <DropdownMenuCheckboxItem
-                        key={column.id}
-                        className="capitalize"
-                        checked={column.getIsVisible()}
-                        onCheckedChange={(value) =>
-                          column.toggleVisibility(!!value)
-                        }
-                      >
-                        {column.id}
-                      </DropdownMenuCheckboxItem>
-                    );
-                  })}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-            
-          </div>
-
-        </div>
+          <AdminTableHeader title="Affiliate" description="See the affiliate who have signed up for your affilate program" filter={invoices} filterKey={invoices} sortBy={invoices} monthly={invoices}/>
         <div className="grid grid-cols-4 gap-5 ">
                 <AdminCard
                   icon={<BsBarChart size={20} />}
@@ -252,7 +167,7 @@ export default function AffiliateId() {
         </div>
       </div>
       <div className="rounded-lg border bg-white shadow-md  mt-4 overflow-hidden">
-              <div className="flex justify-between p-4  border w-full">
+              {/* <div className="flex justify-between p-4  border w-full">
                 <div>
                   <h3 className="text-lg font-bold">Payments</h3>
                   <p>You made 24 sales this week</p>
@@ -334,7 +249,8 @@ export default function AffiliateId() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-              </div>
+              </div> */}
+               <AdminTableHeader title="Payments" description="You made 24 sales this week" filter={invoices} />
               <Table className="border rounded-lg w-full">
                 <TableHeader>
                   <TableRow className="col-span-12">

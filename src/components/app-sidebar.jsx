@@ -48,11 +48,11 @@ const data = {
     },
     {
       title: "Getting Started",
-      url: "settings",
+      url: "campaign-settings",
       items: [
         {
           title: "Settings",
-          url: "settings",
+          url: "campaign-settings",
           icon: <Settings />,
         },
         {
@@ -103,8 +103,8 @@ export function AppSidebar({
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={activeItem === item.title? true : false} onClick={() => handleItemClick(item.title)}>
+                  <SidebarMenuItem key={item.title} onClick={() => handleItemClick(item.title)}>
+                    <SidebarMenuButton asChild isActive={activeItem === item.title? true : false} >
                     <div className="flex items-center">
                       <span className="">
                         {item?.icon}

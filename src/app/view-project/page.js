@@ -66,7 +66,7 @@ import ProjectCard from "@/components/project-card/project-card";
 import { BsPrescription2 } from "react-icons/bs";
 import { BsBriefcase } from "react-icons/bs";
 import { RiFileExcel2Line } from "react-icons/ri";
-<RiFileExcel2Line />;
+{/* <RiFileExcel2Line />; */}
 
 let Design = () => {
   return (

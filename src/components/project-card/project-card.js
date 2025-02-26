@@ -9,9 +9,9 @@ export default function ProjectCard(props) {
   return (
     <div className="border bg-white rounded-lg p-3">
       <div className="flex items-center justify-between">
-        <div className="flex gap-3">
-          <div className="w-12 p-2">
-            <img src={props.icon} alt="" width={"100%"} />
+        <div className="flex items-center gap-3">
+          <div className="w-12 p-2 border rounded-full overflow-hidden">
+            <img src="user-1.png" alt="" width={"100%"} />
           </div>
           <div>
            

@@ -15,19 +15,20 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    try {
-      const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
-      if (isloggedIn) {
-        setUserActive(true);
-      } else {
-        setUserActive(false);
-        router.push("/login");
-      }
-    } catch (error) {
-      console.error("Error parsing JSON from localStorage", error);
-      setUserActive(false);
-      router.push("/login");
-    }
+    setUserActive(true)
+    // try {
+    //   const isloggedIn = JSON.parse(localStorage.getItem("userLogin"));
+    //   if (isloggedIn) {
+    //     setUserActive(true);
+    //   } else {
+    //     setUserActive(false);
+    //     router.push("/login");
+    //   }
+    // } catch (error) {
+    //   console.error("Error parsing JSON from localStorage", error);
+    //   setUserActive(false);
+    //   router.push("/login");
+    // }
   }, [router]);
 
   return (

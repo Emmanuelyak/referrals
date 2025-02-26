@@ -62,7 +62,7 @@ import { ImCoinDollar } from "react-icons/im";
 import { BiFilterAlt } from "react-icons/bi";
 import { FaRegCalendarPlus } from "react-icons/fa";
 import { TfiReload } from "react-icons/tfi";
-import { Ellipsis } from "lucide-react";
+import { Ellipsis, Plus } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -72,6 +72,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import AdminHeader from "@/components/admin-components/header";
+import AdminTableHeader from "@/components/admin-components/table-header";
 
 const chartData = [
   { month: "January", desktop: 186 },
@@ -184,6 +186,7 @@ export default function page() {
   ];
   return (
     <div className="">
+      <AdminHeader header={"Analytics Dashboard - This month"} description="See the latest analysis from your affiliate program." icons={"Plus"} btnMessage="Invite Affiliate"/>
       <div className="grid grid-cols-4 gap-5 ">
         <AdminCard
           icon={<BsBarChart size={20} />}
@@ -439,8 +442,8 @@ export default function page() {
         </div>
       </div>
 
-      <div className="rounded-lg border bg-white shadow-md  mt-4 overflow-hidden">
-        <div className="flex justify-between p-4  border w-full">
+      <div className="rounded-lg  bg-white shadow-md  mt-4 overflow-hidden">
+        {/* <div className="flex justify-between p-4  border w-full">
           <div>
             <h3 className="text-lg font-bold">Payments</h3>
             <p>You made 24 sales this week</p>
@@ -522,27 +525,28 @@ export default function page() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-        </div>
-        <Table className="border rounded-lg w-full">
-          <TableHeader>
-            <TableRow className="col-span-12">
-              <TableHead className="pl-10">Affiliate Name</TableHead>
-              <TableHead className="font-bold">Payout Email</TableHead>
-              <TableHead className="font-bold">Reffered By</TableHead>
-              <TableHead className="font-bold">Method</TableHead>
-              <TableHead className="font-bold">Payment</TableHead>
-              <TableHead className="font-bold">Status</TableHead>
+        </div> */}
+        <AdminTableHeader title="Payments" description="You made 24 sales this week" filter={invoices} filterKey={invoices} sortBy={invoices} monthly={invoices}/>
+        <Table className="border rounded-lg">
+          <TableHeader colSpan={12}>
+            <TableRow colSpan={12} className="w-12/12">
+              <TableHead className="pl-10 w-2/12 border">Affiliate Name</TableHead>
+              <TableHead className="font-bold w-2/12 border">Payout Email</TableHead>
+              <TableHead className="font-bold w-2/12 border">Reffered By</TableHead>
+              <TableHead className="font-bold w-2/12 border">Method</TableHead>
+              <TableHead className="font-bold w-2/12 border">Payment</TableHead>
+              <TableHead className="font-bold w-2/12 border">Status</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className='w-full'>
+          <TableBody className='w-12/12'>
             {invoices.map((invoice) => (
               <TableRow key={invoice.affiliate}>
-                <TableCell className=" pl-10">{invoice?.affiliate}</TableCell>
-                <TableCell className=" ">{invoice?.payoutEmail}</TableCell>
-                <TableCell className=" ">{invoice?.refferedBy}</TableCell>
-                <TableCell className=" ">{invoice?.paymentMethod}</TableCell>
-                <TableCell className=" ">{invoice?.payment}</TableCell>
-                <TableCell className=" ">{invoice?.status}</TableCell>
+                <TableCell className="w-2/12 border pl-10">{invoice?.affiliate}</TableCell>
+                <TableCell className="w-2/12 border ">{invoice?.payoutEmail}</TableCell>
+                <TableCell className="w-2/12 border ">{invoice?.refferedBy}</TableCell>
+                <TableCell className="w-2/12 border ">{invoice?.paymentMethod}</TableCell>
+                <TableCell className="w-2/12 border ">{invoice?.payment}</TableCell>
+                <TableCell className="w-2/12 border ">{invoice?.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>
