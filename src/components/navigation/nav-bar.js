@@ -3,21 +3,27 @@ import { GlobalNav } from "@/providers/nav-global-provider";
 import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Dropdown, Avatar } from "rsuite";
+import Image from "next/image";
 export default function Navbar() {
   const router = useRouter();
   const { activeTab, setActiveTab } = useContext(GlobalNav);
   useEffect(() => {
-    const savedTab = localStorage.getItem("activeTab");
+    const savedTab = sessionStorage.getItem("activeTab");
     if (savedTab) {
       setActiveTab(savedTab);
+      if (activeTab === "home") {
+        router.push("/");
+      } else {
+      router.push(`/${activeTab}`);
+      }
     }
-  }, [setActiveTab]);
+  }, [activeTab]);
   const renderToggle = (props) => <Avatar circle {...props} src="user-1.png" />;
 
   const toggle = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
-      localStorage.setItem("activeTab", tab);
+      sessionStorage.setItem("activeTab", tab);
       if (tab === "home") {
         router.push("/");
       } else {
@@ -28,8 +34,8 @@ export default function Navbar() {
   return (
     <div>
       <nav className="flex justify-between px-5 py-2 bg-white">
-        <div className="text-4xl font-extrabold [text-shadow:_0_1px_2px_rgb(0_0_0_/_20%)]">
-          R
+        <div className="w-24">
+          <Image src={"https://www.svgrepo.com/show/487712/referral-2.svg"} loading="lazy" layout="responsive" objectFit="cover" objectPosition="center" width={"100"} height={"100"}/>
         </div>
 
         <div>
@@ -47,7 +53,9 @@ export default function Navbar() {
     <Dropdown.Separator /> */}
                 {/* <Dropdown.Item>Help</Dropdown.Item> */}
                 <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Item>Log out</Dropdown.Item>
+                <Dropdown.Item onClick={()=>{
+                  router.push("/login")
+                }}>Log out</Dropdown.Item>
               </Dropdown>
             </li>
             <li>

@@ -27,13 +27,13 @@ export default function ProjectCard(props) {
             >
               View
             </Dropdown.Item>
-            <Dropdown.Item
+            {/* <Dropdown.Item
               onClick={() => {
                 router.push("/referrals");
               }}
             >
               Referrals
-            </Dropdown.Item>
+            </Dropdown.Item> */}
           </Dropdown>
         </div>
       </div>

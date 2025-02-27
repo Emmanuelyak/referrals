@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react"
-import { Home,Users,Wifi, Settings } from "lucide-react";
+import { Home,Users,Wifi, Settings, Percent } from "lucide-react";
 
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
@@ -34,15 +34,20 @@ const data = {
           isActive: true,
         },
         {
+          title: "Marketplace",
+          url: "marketplace",
+          icon: <Wifi />,
+        },
+        {
           title: "Affiliate",
           url: "affiliate",
           icon: <Users />,
 
         },
         {
-          title: "Marketplace",
-          url: "marketplace",
-          icon: <Wifi />,
+          title: "Referrals",
+          url: "referrals",
+          icon: <Percent />,
         },
       ],
     },
@@ -51,7 +56,7 @@ const data = {
       url: "campaign-settings",
       items: [
         {
-          title: "Settings",
+          title: "Campaign Settings",
           url: "campaign-settings",
           icon: <Settings />,
         },
@@ -85,6 +90,17 @@ export function AppSidebar({
   const handleItemClick = (title) => {
     setActiveItem(title);
     sessionStorage.setItem("activeItem", title);
+    const Link = title
+    const check = Link.includes(' ');
+    if (check) {
+      const newLink = Link.replace(' ', '-');
+      const useData = newLink.toLowerCase()
+      router.push(`/admin/${useData}`)
+    }else{
+      const useData = Link.toLowerCase()
+      router.push(`/admin/${useData}`)
+    }
+   console.log(useData)
   };
   if (activeItem === null) {
     return null; // or a loading spinner
@@ -103,8 +119,8 @@ export function AppSidebar({
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title} onClick={() => handleItemClick(item.title)}>
-                    <SidebarMenuButton asChild isActive={activeItem === item.title? true : false} >
+                  <SidebarMenuItem key={item.title} >
+                    <SidebarMenuButton asChild isActive={activeItem === item.title? true : false} onClick={() => handleItemClick(item.title)}>
                     <div className="flex items-center">
                       <span className="">
                         {item?.icon}

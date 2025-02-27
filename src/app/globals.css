@@ -105,5 +105,24 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    
   }
+  input{
+    outline: none;
+  }
+}
+input{
+  outline: none;
+}
+.rs-input-group:hover, .rs-input-group-inside{
+  outline: none;
+  border-color: #0a0a0a;
+}
+.password{
+  outline: none;
+  border-color: #0a0a0a;
+}
+.rs-input-group-inside:hover{
+  outline: none;
+  border:1px solid #0a0a0a;
 }

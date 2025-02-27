@@ -252,16 +252,16 @@ export default function AffiliateId() {
               </div> */}
                <AdminTableHeader title="Payments" description="You made 24 sales this week" filter={invoices} />
               <Table className="border rounded-lg w-full">
-                <TableHeader>
-                  <TableRow className="col-span-12">
-                    <TableHead className="pl-10">Affiliate Name</TableHead>
-                    <TableHead className="font-bold">Payout Email</TableHead>
-                    <TableHead className="font-bold">Reffered By</TableHead>
-                    <TableHead className="font-bold">Method</TableHead>
-                    <TableHead className="font-bold">Payment</TableHead>
-                    <TableHead className="font-bold">Status</TableHead>
-                  </TableRow>
-                </TableHeader>
+              <TableHeader className="">
+                          <TableRow className=" border">
+                            <TableHead className="pl-10 w-3/12">Affiliate Name</TableHead>
+                            <TableHead className="font-bold w-2/12">Payout Email</TableHead>
+                            <TableHead className="font-bold w-2/12">Reffered By</TableHead>
+                            <TableHead className="font-bold w-2/12">Method</TableHead>
+                            <TableHead className="font-bold w-2/12">Payment</TableHead>
+                            <TableHead className="font-bold w-full">Status</TableHead>
+                          </TableRow>
+                        </TableHeader>
                 <TableBody className='w-full'>
                   {invoices.map((invoice) => (
                     <TableRow key={invoice.affiliate}>
