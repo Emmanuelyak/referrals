@@ -100,7 +100,6 @@ export function AppSidebar({
       const useData = Link.toLowerCase()
       router.push(`/admin/${useData}`)
     }
-   console.log(useData)
   };
   if (activeItem === null) {
     return null; // or a loading spinner
